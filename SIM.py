@@ -50,10 +50,15 @@ def temColisao(b1, b2):
 
         erro = b1.r + b2.r - distTotal
 
-        b1.x += (distx / distTotal) * (erro / 2)
-        b2.x -= (distx / distTotal) * (erro / 2)
-        b1.y += (disty / distTotal) * (erro / 2)        
-        b2.y -= (disty / distTotal) * (erro / 2)
+        nx = distx / distTotal
+        ny = disty / distTotal
+
+        correcao = (erro) * 0.5
+
+        b1.x += nx * correcao
+        b2.x -= nx * correcao
+        b1.y += ny * correcao
+        b2.y -= ny * correcao
 
         if b1.x - b1.r < 0: 
             b1.x = b1.r
